@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+
+    <title>UI5CN Simple Tiles KPI</title>
+
+    <script id='sap-ui-bootstrap' type='text/javascript' src='https://sapui5.hana.ondemand.com/resources/sap-ui-core.js' data-sap-ui-theme='sap_bluecrystal' data-sap-ui-libs='sap.m,sap.suite.ui.commons,sap.ui.core,sap.viz'></script>
+    <!-- load the mobile lib "sap.m", the layout lib and the "sap_bluecrystal" theme -->
+
+
+    <script type="text/javascript">
+        var oDinoT = new sap.suite.ui.commons.GenericTile({
+            header: "Dinosaur",
+            subheader: "Mountains",
+            tileContent: [
+                new sap.suite.ui.commons.TileContent({
+                    footer: "Rank",
+                    content: [
+                        new sap.suite.ui.commons.NumericContent({
+                            indicator: "Up",
+                            value: "1",
+                            valueColor: "Good"
+                        })
+
+                    ]
+                })
+            ]
+
+        });
+         var oEleT = new sap.suite.ui.commons.GenericTile({
+            header: "Elephant",
+            subheader: "Forest",
+            tileContent: [
+                new sap.suite.ui.commons.TileContent({
+                    footer: "Rank",
+                    content: [
+                        new sap.suite.ui.commons.NumericContent({
+                            indicator: "Down",
+                            value: "2",
+                            valueColor: "Good"
+                        })
+
+                    ]
+                })
+            ]
+
+        });
+        
+        var oDCT = new sap.m.CustomTile({
+            content:[
+                oDinoT
+                ]
+        });
+           
+        var oECT = new sap.m.CustomTile({
+            content:[
+                oEleT
+                ]
+        });
+        var oTileContainer = new sap.m.TileContainer({
+           
+           tiles:[
+               oDCT,
+               oECT
+               ] 
+        });
+
+        // create the oPage holding the oList
+        var oPage = new sap.m.Page({
+            title: "KPI Tiles",
+            content: [
+                oTileContainer
+            ]
+        });
+
+        // create a mobile oApp holding the oPages and place the oApp into the HTML document
+        var oApp = new sap.m.App({
+            pages: [oPage]
+        }).placeAt("content");
+
+        // set the oModel to the oApp; it will be propagated to the children
+    </script>
+
+</head>
+
+<body id="content" class="sapUiBody">
+</body>
+
+</html>

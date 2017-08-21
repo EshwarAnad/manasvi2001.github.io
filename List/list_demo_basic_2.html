@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+
+	<title>UI5CN Simple List</title>
+
+	<script id='sap-ui-bootstrap' type='text/javascript' src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js' data-sap-ui-theme='sap_bluecrystal' data-sap-ui-libs='sap.m'></script>
+	<!-- load the mobile lib "sap.m", the layout lib and the "sap_bluecrystal" theme -->
+
+
+	<script type="text/javascript">
+	
+		var listItem1 = new sap.m.StandardListItem({
+			title: "Dinosaurs",
+			description: "Mountain"
+		});
+	
+		// create a List control
+		var list = new sap.m.List({
+			headerText: "Animals",
+			items: [
+				listItem1			]
+		});
+		
+		// create the page holding the List
+		var page = new sap.m.Page({
+			title: "List Page",
+			content: list
+		});
+
+		// create a mobile App holding the pages and place the App into the HTML document
+		var app = new sap.m.App({
+			pages: [page]
+		}).placeAt("content");
+
+		// set the model to the App; it will be propagated to the children
+		app.setModel(model);
+	</script>
+
+</head>
+
+<body id="content" class="sapUiBody">
+</body>
+
+</html>

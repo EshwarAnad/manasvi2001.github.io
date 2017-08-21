@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+
+	<title>UI5CN Simple List Data Binding</title>
+
+	<script id='sap-ui-bootstrap' type='text/javascript' src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js' data-sap-ui-theme='sap_bluecrystal' data-sap-ui-libs='sap.m'></script>
+	<!-- load the mobile lib "sap.m", the layout lib and the "sap_bluecrystal" theme -->
+
+
+	<script type="text/javascript">
+		var oData = [{
+				Name: "Dinosaur",
+				Place: "Mountain"
+		}
+
+		];
+
+		var oModel = new sap.ui.model.json.JSONModel();
+		oModel.setData(oData);
+
+		var oItem1 = new sap.m.StandardListItem({
+			title: "{/Name}",
+			description: "{/Place}"
+		});
+		
+
+		var oList = new sap.m.List({
+			headerText: "Animals",
+			items: [
+
+				oItem1
+			]
+		});
+
+		oList.setModel(oModel);
+
+
+		var oPage = new sap.m.Page({
+			title: "List Page",
+			content: [
+				oList
+			]
+		});
+		var oApp = new sap.m.App({
+			pages: [oPage]
+		}).placeAt("content");
+	</script>
+
+</head>
+
+<body id="content" class="sapUiBody">
+	<div id="content">
+
+	</div>
+</body>
+
+
+</html>

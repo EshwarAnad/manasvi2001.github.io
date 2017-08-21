@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <title>Hello World</title>
+
+    <script id='sap-ui-bootstrap' type='text/javascript' src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js' data-sap-ui-theme='sap_bluecrystal' data-sap-ui-libs='sap.m,sap.ui.commons'></script>
+
+
+    <script>
+        var oSimpleForm = new sap.ui.layout.form.SimpleForm({
+            maxContainerCols: 10,
+            content: [
+
+
+                new sap.m.Label({
+                    text: "Simple Form"
+                }),
+                new sap.m.Input({
+                    placeholder: "Simple Input",
+                    maxWidth: "20%"
+                }),
+                new sap.m.Button({
+                    text: "Press me"
+                }),
+                new sap.m.RatingIndicator({
+                    value: 4
+                }),
+                new sap.m.TextArea({
+                    value: "Awsome text area"
+                }),
+                new sap.m.DatePicker({
+
+                }),
+                new sap.ui.unified.FileUploader({
+                    tooltip: "It is simple"
+                }),
+                new sap.m.Bar({
+                    contentRight: [
+                        new sap.m.Button({
+                            text: "Right side"
+                        })
+                    ]
+                }),
+                new sap.m.VBox({
+                    items: [
+                        new sap.m.Button({
+                            text: "VBOX Btn1"
+                        }), new sap.m.Button({
+                            text: "VBOX Btn2"
+                        })
+                    ]
+                }),
+                 new sap.m.HBox({
+                    items: [
+                        new sap.m.Button({
+                            text: "HBOX Btn1"
+                        }), new sap.m.Button({
+                            text: "HBOX Btn2"
+                        })
+                    ]
+                }),
+            ]
+        });
+        oSimpleForm.placeAt("content")
+    </script>
+
+
+</head>
+
+<body class='sapUiBody'>
+    <div id="content"></div>
+
+</body>
+
+</html>

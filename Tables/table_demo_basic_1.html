@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <title>sap.ui.table</title>
+
+    <script id='sap-ui-bootstrap' type='text/javascript' src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js' data-sap-ui-theme='sap_bluecrystal' data-sap-ui-libs='sap.m'></script>
+
+    <script>
+        var oData = {
+            "names": [{
+                id: 1,
+                Name: "Dinosaurs",
+                Place: "Mountain"
+            }, {
+                id: 2,
+                Name: "Elephant",
+                Place: "Forest"
+            }, {
+                id: 3,
+                Name: "Whale",
+                Place: "Sea"
+            }, {
+                id: 4,
+                Name: "Duck",
+                Place: "Water"
+            }, {
+                id: 5,
+                Name: "Monkey",
+                Place: "Tree"
+            }]
+        };
+        var oModel = new sap.ui.model.json.JSONModel(oData);
+
+        var oCol1 = new sap.m.Column({
+            header: new sap.m.Label({
+                text: "Name"
+            })
+            
+        });
+        var oCol2 = new sap.m.Column({
+            header: new sap.m.Label({
+                text: "Place"
+            })
+        });
+        var oCol3 = new sap.m.Column({
+            header: new sap.m.Label({
+                text: "Id"
+            })
+        });
+
+
+
+
+        var oTable = new sap.m.Table({
+            title: "Simple Table",
+            columns: [
+                oCol1,
+                oCol2,
+                oCol3
+            ]
+
+        });
+        oTable.bindItems({
+            path: "/names",
+            template: new sap.m.ColumnListItem({
+                cells: [
+                    new sap.m.Text({
+                        text: "{Name}"
+                    }),
+                    new sap.m.Text({
+                        text: "{Place}"
+                    }),
+                    new sap.m.Text({
+                        text: "{id}"
+                    })
+
+                ]
+            })
+        })
+
+        /*        oTable.bindAggregation("items", "/names", oTableItems);*/
+        oTable.setModel(oModel);
+        oTable.placeAt('content');
+    </script>
+
+</head>
+
+<body class='sapUiBody'>
+    <div id="content">
+    </div>
+
+</body>
+
+</html>

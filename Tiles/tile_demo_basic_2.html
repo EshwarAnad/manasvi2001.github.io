@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <title>sap.m.Tile Dynamic</title>
+
+    <script id='sap-ui-bootstrap' type='text/javascript' src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js' data-sap-ui-theme='sap_bluecrystal' data-sap-ui-libs='sap.m,sap.ui.core,sap.ui.commons,sap.ui.table'></script>
+
+    <script>
+        var oData = {
+            "names": [{
+                icon: "sap-icon://sap-ui5",
+                Name: "Dinosaur",
+                Place: "Mountain"
+            }, {
+                icon: "sap-icon://general-leave-request",
+                Name: "Elephant",
+                Place: "Forest"
+            }, {
+                icon: "sap-icon://map-2",
+                Name: "Whale",
+                Place: "Sea"
+            }, {
+                icon: "sap-icon://travel-expense",
+                Name: "Duck",
+                Place: "Water"
+            }]
+        };
+        var oModel = new sap.ui.model.json.JSONModel(oData);
+
+        var oTileTemplate = new sap.m.StandardTile({
+            icon: "{icon}",
+            title: "{Name}",
+            info: "{Place}"
+
+        });
+
+
+        var oTileContainer = new sap.m.TileContainer("idTileAction", {
+
+        });
+        
+        
+        oTileContainer.bindAggregation("tiles", "/names", oTileTemplate);
+
+        oTileContainer.setModel(oModel);
+
+        var page = new sap.m.Page({
+            title: "Dynamic Tile",
+            enableScrolling: false,
+            content: [
+                oTileContainer
+            ]
+        });
+        var app = new sap.m.App();
+        app.addPage(page);
+        app.placeAt("content");
+    </script>
+
+</head>
+
+<body class="sapUiBody" role="application">
+    <div id="content">
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>  
+<html><head>  
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />  
+    <title>Hello World</title>  
+  
+  <script id='sap-ui-bootstrap' type='text/javascript'
+		src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js'
+		data-sap-ui-theme='sap_bluecrystal'
+		data-sap-ui-libs='sap.m'></script>
+	
+	<script>
+		
+		var label =new sap.m.Label({
+			
+			text:"{/key1}"
+		});
+		var label1 =new sap.m.Label({
+		
+			text:"{/key2}"	
+		});
+	
+	var data = {
+		"key1":"someValue",
+		"key2":"someMoreValue"
+	};
+	
+	var newModel = new sap.ui.model.json.JSONModel();
+	
+	newModel.setData(data);
+	
+	label.setModel(newModel);
+	label1.setModel(newModel);
+	
+	label.placeAt("content");
+	label1.placeAt("content1");
+	
+    </script>
+    
+    </head>
+    <body class='sapUiBody'>
+    	<div id="content">
+    	</div>
+    	<div id="content1">
+    	</div>
+    </body>
+</html>

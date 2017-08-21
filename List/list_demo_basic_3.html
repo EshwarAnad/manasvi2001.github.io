@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+
+	<title>UI5CN Simple List Data Binding</title>
+
+	<script id='sap-ui-bootstrap' type='text/javascript' src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js' data-sap-ui-theme='sap_bluecrystal' data-sap-ui-libs='sap.m'></script>
+	<!-- load the mobile lib "sap.m", the layout lib and the "sap_bluecrystal" theme -->
+
+
+	<script type="text/javascript">
+		// create the oData
+
+		// create some dummy JSON oData
+		
+		var oData = {
+			names: [{
+				Name: "Dinosaur",
+				Place: "Mountain"
+			}, {
+				Name: "Elephant",
+				Place: "Forest"
+			}, {
+				Name: "Whale",
+				Place: "Sea"
+			}, {
+				Name: "Duck",
+				Place: "Water"
+			}, {
+				Name: "Monkey",
+				Place: "Tree"
+			}]
+		};
+
+		// create a oModel with this oData
+		var oModel = new sap.ui.model.json.JSONModel();
+		oModel.setData(oData);
+
+
+		// create the UI
+
+		// create a oList control
+		var oList = new sap.m.List({
+			headerText: "Animals"
+		});
+
+		// bind the oList items to the oData collection
+		oList.bindItems({
+			path: "/names",
+			template: new sap.m.StandardListItem({
+				title: "{Name}",
+				description: "{Place}"
+			})
+		});
+
+		// create the oPage holding the oList
+		var oPage = new sap.m.Page({
+			title: "List Page",
+			content: oList
+		});
+
+		// create a mobile oApp holding the oPages and place the oApp into the HTML document
+		var oApp = new sap.m.App({
+			pages: [oPage]
+		}).placeAt("content");
+
+		// set the oModel to the oApp; it will be propagated to the children
+		oList.setModel(oModel);
+	</script>
+
+</head>
+
+<body id="content" class="sapUiBody">
+</body>
+
+</html>

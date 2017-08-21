@@ -1,0 +1,16 @@
+.simpleInput{
+    
+   width: 60% !important;
+    padding-left: 30% !Important;
+}
+
+.simpleBtn{
+    width:60%;
+    padding-left: 30% !Important;
+
+}
+
+.sapMBtnInner.sapMBtnText{
+    
+    background: #007cc0;
+}

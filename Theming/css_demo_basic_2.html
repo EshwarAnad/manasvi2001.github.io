@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <title>UI5CN CSS Styling</title>
+  <link rel="stylesheet" type="text/css" href="custom_2.css">
+
+    <script id='sap-ui-bootstrap' type='text/javascript' src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js' data-sap-ui-theme='sap_bluecrystal' data-sap-ui-libs='sap.m,sap.ui.commons'></script>
+
+
+    <script>
+        var oSimpleForm = new sap.ui.layout.form.SimpleForm({
+            maxContainerCols: 10,
+            content: [
+                new sap.m.Label({
+                    text: "Simple Form"
+                }).addStyleClass("labelForm"),
+                new sap.m.Input({
+                    placeholder: "Simple Input",
+                    maxWidth: "20%"
+                }).addStyleClass("inputForm"),
+                new sap.m.Button({
+                    text: "Press me"
+                }).addStyleClass("btnForm"),
+                new sap.m.RatingIndicator({
+                    value: 4
+                }).addStyleClass("ratingForm"),
+                new sap.m.TextArea({
+                    value: "Awsome text area"
+                }).addStyleClass("textAreaForm"),
+                new sap.m.DatePicker({
+
+                }).addStyleClass("inputForm"),
+                new sap.m.VBox({
+                    items: [
+                        new sap.m.Button({
+                            text: "VBOX Btn1"
+                        }), new sap.m.Button({
+                            text: "VBOX Btn2"
+                        })
+                    ]
+                }).addStyleClass("vBoxForm"),
+                 new sap.m.HBox({
+                    items: [
+                        new sap.m.Button({
+                            text: "HBOX Btn1"
+                        }), new sap.m.Button({
+                            text: "HBOX Btn2"
+                        })
+                    ]
+                }).addStyleClass("hBoxForm"),
+            ]
+        }).addStyleClass("newForm");
+        oSimpleForm.placeAt("content")
+    </script>
+
+
+</head>
+
+<body class='sapUiBody'>
+    <div id="content"></div>
+
+</body>
+
+</html>

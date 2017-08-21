@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <title>Styling UI5</title>
+    <link rel="stylesheet" type="text/css" href="custom_1.css">
+
+    <script id='sap-ui-bootstrap' type='text/javascript' src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js' data-sap-ui-theme='sap_bluecrystal' data-sap-ui-libs='sap.m,sap.ui.commons'></script>
+
+    <script>
+        var obj;
+        var foo = function(objCont) {
+
+            alert("hi");
+            obj = objCont;
+            debugger;
+            console.log(obj.getSource());
+            console.log(objCont.oSource);
+            console.log(objCont);
+
+        };
+        var oSimpleInput = new sap.m.Input({
+
+            placeholder: "Enter Name"
+
+        }).addStyleClass("simpleInput");
+        var oBtn = new sap.m.Button({
+            text: "Submit",
+            press: [foo]
+        }).addStyleClass("simpleBtn");
+        var oPage = new sap.m.Page({
+            title: "Simple App",
+            content: [
+                oSimpleInput,
+                oBtn
+            ]
+        });
+
+        var oApp = new sap.m.App();
+        oApp.addPage(oPage);
+        oApp.placeAt("content")
+    </script>
+
+
+
+</head>
+
+<body class='sapUiBody'>
+    <div id="content"></div>
+
+</body>
+
+</html>
